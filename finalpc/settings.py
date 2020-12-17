@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'corsheaders',
     'consultorio',
 ]
 
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'corsheaders.middleware.CorsMiddleware',
             ],
         },
     },
@@ -128,3 +130,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 GRAPHENE = {
     'SCHEMA': 'finalpc.schema.schema'
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
