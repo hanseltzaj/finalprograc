@@ -1,0 +1,103 @@
+{% load static %}
+<html>
+  <head>
+    <title>Pacientes</title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="team" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static '/css/owl.carousel.css' %}">
+     <link rel="stylesheet" href="{% static '/css/owl.theme.default.min.css' %}">
+     <link rel="stylesheet" href="{% static '/css/font-awesome.min.css' %}">
+     <link rel="stylesheet" href="{% static '/css/tooplate-style.css' %}">
+</head>
+<body>
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+          </div>
+     </section>
+
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <a href="/" class="navbar-brand">ConsultorioMeso</a>
+               </div>
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                      <li><a href="{% url 'principal' %}" class="smoothScroll">Inicio</a></li>
+                      <li><a href="{% url 'alquiler_nuevo' %}" class="smoothScroll">Pacientes</a></li>
+                      <li><a href="{% url 'alquiler_lista' %}" class="smoothScroll">Citas</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                         <li><a href="#">Hola <span>Usuario</span></a></li>
+                    </ul>
+               </div>
+          </div>
+     </section>
+     <section id="contact" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-offset-1 col-md-10 col-sm-12">
+                        <br><br>
+
+
+                              {% csrf_token %}
+                              <center>
+                                <div class="col-md-offset-1 col-md-10 col-sm-12">
+                                    <br><br>
+                                    {% for paciente in pacientes %}
+                                    <div >
+                                      <h2><a href="{% url 'paciente_detalle' pk=evento.pk %}">{{ paciente.nombre }}</a></h2>
+
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </center>
+                            </div>
+
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+
+     <!-- FOOTER -->
+     <footer id="footer" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="copyright-text col-md-12 col-sm-12">
+                         <div class="col-md-6 col-sm-6">
+                              <p>Copyright &copy; 2020 Hecho por Hansel Tzaj</p>
+                         </div>
+
+                         <div class="col-md-6 col-sm-6">
+                              <ul class="social-icon">
+                                   <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                   <li><a href="#" class="fa fa-twitter"></a></li>
+                                   <li><a href="#" class="fa fa-instagram"></a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </footer>
+
+     <!-- SCRIPTS -->
+     <script type="text/javascript" src="{% static '/js/jquery.js' %}"></script>
+     <script type="text/javascript" src="{% static '/js/bootstrap.min.js' %}"></script>
+     <script type="text/javascript" src="{% static '/js/jquery.stellar.min.js' %}"></script>
+     <script type="text/javascript" src="{% static '/js/owl.carousel.min.js' %}"></script>
+     <script type="text/javascript" src="{% static '/js/smoothscroll.js' %}"></script>
+     <script type="text/javascript" src="{% static '/js/custom.js' %}"></script>
+
+</body>
+</html>
