@@ -4,7 +4,7 @@ from .models import Paciente, Medicamento, Cita, Consulta
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-def Paciente_lista(request):
+def paciente_lista(request):
     pacientes = Paciente.objects.filter()
     return render(request, 'consultorio/paciente_lista.html', {'pacientes':pacientes})
 
