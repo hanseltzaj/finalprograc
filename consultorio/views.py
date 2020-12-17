@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from .models import Paciente, Medicamento, Cita, Consulta
 from django.utils import timezone
-from .forms import PublicacionForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 def Paciente_lista(request):
